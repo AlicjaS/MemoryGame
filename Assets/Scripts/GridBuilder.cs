@@ -6,8 +6,8 @@ using System.Collections.Generic;
 public class GridBuilder : MonoBehaviour {
 
 	public GameObject prefCard;
-	public Sprite[] frontPics;
-	
+	public List<Sprite> allSprites;
+
 	private List<Sprite> curSprites;
 	private float gridHeight = 400f;
 	private float gridWidth = 500f;
@@ -53,8 +53,12 @@ public class GridBuilder : MonoBehaviour {
 		int typesQty = hVal * wVal/2;
 		curSprites.Clear ();
 		for (int i=0; i<typesQty; i++) {
-			curSprites.Add(frontPics[i]);
-			curSprites.Add(frontPics[i]);
+			int spriteIndex = Random.Range(0, allSprites.Count);
+			Sprite tempSprite = allSprites[spriteIndex];
+			curSprites.Add(tempSprite);
+			curSprites.Add(tempSprite);
+			allSprites.RemoveAt(spriteIndex);
+			allSprites.TrimExcess();
 		}
 	}
 }
