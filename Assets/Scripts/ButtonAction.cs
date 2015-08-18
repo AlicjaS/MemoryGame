@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System;
+using System.IO;
 
 public class ButtonAction : MonoBehaviour, ICardBtn {
 
